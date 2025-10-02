@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+  <h3>{{ acao }} Produto</h3>
+  <form method="post">
+    <div class="mb-3">
+      <label class="form-label">Tipo *</label>
+      <input name="tipo" class="form-control" required value="{{ produto.tipo if produto else '' }}">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Descrição</label>
+      <textarea name="descricao" class="form-control" rows="3">{{ produto.descricao if produto else '' }}</textarea>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Valor (use . ou ,) *</label>
+      <input name="valor" class="form-control" required value="{{ "{:,.2f}".format(produto.valor) if produto else '' }}">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Peso (kg) (opcional)</label>
+      <input name="peso" class="form-control" value="{{ "{:,.3f}".format(produto.peso) if produto and produto.peso is not none else '' }}">
+    </div>
+
+    <button class="btn btn-primary" type="submit">Salvar</button>
+    <a class="btn btn-secondary" href="{{ url_for('index') }}">Cancelar</a>
+  </form>
+{% endblock %}
