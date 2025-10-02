@@ -13,3 +13,6 @@ CREATE TABLE IF NOT EXISTS produtos (
   criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+Instalação do requirements.txt
+
+pip install -r requirements.txt
